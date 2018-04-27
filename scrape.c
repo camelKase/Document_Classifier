@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <string.h>
-
-main(void){
+int ReadWordsInFile(const char *filename, char *words[], int max);
+int main(int argc, char* args[]){
 	//Will store all the words counted from the files
 	char *words[2000];
-	int wordcount = ReadWordsInFile("Bayern.txt",words,2000);
+	int wordcount = ReadWordsInFile(args[1], words,2000);
 	//Counts & prints the number of occurences for each word
 	/*for(int i=0;i<wordcount, i++){
 	int n=CountWordOccurences(words[i],"Bayern.txt");
@@ -17,6 +17,7 @@ main(void){
 	for(i=0;i<wordcount;i++){
 	printf("The %d word is %s\n",i, words[i]);
 	}
+	return 0;
 }
 
 int ReadWordsInFile(const char *filename, char *words[], int max){
