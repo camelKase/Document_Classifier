@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
+//Get text.
 main(void){
 	//Will store all the words counted from the files
 	char *words[2000];
