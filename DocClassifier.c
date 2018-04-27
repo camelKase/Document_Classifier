@@ -28,15 +28,15 @@ struct Food {
 };
 
 struct Science {
-        char *category;
-        char *science_bow[NUM_KEYWORDS];
-        int key_hits;
+    char *category;
+    char *science_bow[NUM_KEYWORDS];
+    int key_hits;
 };
 
 struct Education {
-        char *category;
-        char *education_bow[NUM_KEYWORDS];
-        int key_hits;
+    char *category;
+    char *education_bow[NUM_KEYWORDS];
+    int key_hits;
 };
 
 
@@ -102,21 +102,20 @@ void search_for_hits(struct Health *health_articles, struct Technology *tech_art
 			if (strcasestr(line, food_articles -> food_bow[i]) != NULL) {
 				food_articles -> key_hits++;
 			}
-		        if (strcasestr(line, science_articles -> science_bow[i]) != NULL) {
-                                science_articles -> key_hits++;
-                        }
-			  if (strcasestr(line, education_articles -> education_bow[i]) != NULL) {
-                                education_articles -> key_hits++;
-                        }
-
-
+		    if (strcasestr(line, science_articles -> science_bow[i]) != NULL) {
+                science_articles -> key_hits++;
+            }
+			if (strcasestr(line, education_articles -> education_bow[i]) != NULL) {
+                education_articles -> key_hits++;
+            }
 		}
 	}
 	fclose(file);   //must close file or else will throw Segmentation fault (core dumped)
 	//print statements for debugging purposes
 	printf("Number of hits for HEALTH category: %d\n", health_articles -> key_hits);
 	printf("Number of hits for TECHNOLOGY category: %d\n", tech_articles -> key_hits);
-    printf("Number of hits for SCIENCE category: %d\n", science_articles -> key_hits);
+	printf("Number of hits for SCIENCE category: %d\n", science_articles -> key_hits);
+	printf("Number of hits for FOOD category: %d\n", food_articles -> key_hits);
 	printf("Number of hits for SPORTS category: %d\n", sports_articles -> key_hits);
 	printf("Number of hits for HEALTH category: %d\n", health_articles -> key_hits);
 	printf("Number of hits for EDUCATION category: %d\n", education_articles -> key_hits);
@@ -166,14 +165,14 @@ void setTechKeywords(struct Technology *tech_articles) {
 	tech_articles -> tech_bow[2] = "network";
 	tech_articles -> tech_bow[3] = "technology";
 	tech_articles -> tech_bow[4] = "screen";
-	tech_articles -> tech_bow[5] = "keyboard";
+	tech_articles -> tech_bow[5] = "data";
 	tech_articles -> key_hits = 0;
 }
 void setSportsKeywords(struct Sports *sports_articles) {
-	sports_articles -> sports_bow[0] = "point";
+	sports_articles -> sports_bow[0] = "points";
 	sports_articles -> sports_bow[1] = "team";
 	sports_articles -> sports_bow[2] = "baseball";
-	sports_articles -> sports_bow[3] = "basketball";
+	sports_articles -> sports_bow[3] = "games";
 	sports_articles -> sports_bow[4] = "throw";
 	sports_articles -> sports_bow[5] = "catch";
 	sports_articles -> key_hits = 0;
